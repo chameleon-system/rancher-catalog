@@ -16,7 +16,7 @@ php:
     EPP_XDEBUG_REMOTE_HOST: ${host_ip}
     SERVICE_USER_ID: ${user_id}
   external_links:
-  - 'per-host-services/mysql:'
+  - ${service_mysql}
   labels:
     io.rancher.container.pull_image: always
   tty: true

@@ -13,6 +13,11 @@
       options:
         - chameleonsystem/docker-services:php-5.6-fpm
         - docker.esono.de:5000/docker-services-private:php-5.6-fpm-oci
+    - variable: "service_mysql"
+      description: "Select the mysql service you want to use. Be sure to start host services first!"
+      label: "Service link to mysql"
+      type: "mysql"
+      required: true
     - variable: "host_project_root"
       description: "Enter the project root on your host system (without trailing /customer)"
       label: "Project root on host"
