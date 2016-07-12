@@ -30,7 +30,7 @@
       label: "Your system user ID"
       type: "int"
       required: true
-      default: "10000"
+      default: "1000"
     - variable: "user_name"
       description: "The name your user has on the host machine"
       label: "Your system user name"
