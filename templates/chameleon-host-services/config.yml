@@ -1,0 +1,4 @@
+name: "Chameleon Host Services"
+description: "Nginx Reverse Proxy and MySQL"
+version: "1"
+category: Chameleon

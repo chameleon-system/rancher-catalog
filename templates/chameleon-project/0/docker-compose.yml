@@ -1,0 +1,42 @@
+memcached:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: memcached:1.4
+  stdin_open: true
+memcached-session:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: memcached:1.4
+  stdin_open: true
+php:
+  environment:
+    EPP_XDEBUG: 'true'
+    EPP_XDEBUG_REMOTE_HOST: ${host_ip}
+    SERVICE_USER_ID: ${user_id}
+  external_links:
+  - 'per-host-services/mysql:'
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: chameleonsystem/docker-services:${phpversion}
+  links:
+  - 'memcached-session:'
+  - 'memcached:'
+  volumes:
+  - ${host_project_root}:/usr/local/apache2/htdocs
+  stdin_open: true
+apache:
+  environment:
+    SERVICE_USER_ID: ${user_id}
+    SERVICE_USER_NAME: ${user_name}
+    VIRTUAL_HOST: ${virtual_host}
+    CERT_NAME: shared
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: chameleonsystem/docker-services:httpd-2.4
+  volumes:
+  - ${host_project_root}:/usr/local/apache2/htdocs
+  stdin_open: true

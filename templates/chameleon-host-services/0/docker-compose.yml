@@ -1,0 +1,24 @@
+nginx:
+  ports:
+  - 80:80/tcp
+  - 443:443/tcp
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: jwilder/nginx-proxy:0.4.0
+  volumes:
+  - /var/run/docker.sock:/tmp/docker.sock:ro
+  - /etc/docker/certs:/etc/nginx/certs
+  stdin_open: true
+mysql:
+  ports:
+  - 3306:3306/tcp
+  environment:
+    MYSQL_ROOT_PASSWORD: asklaskl
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: chameleonsystem/docker-services:mysql-5.6
+  volumes:
+  - mysql:/var/lib/mysql
+  stdin_open: true
