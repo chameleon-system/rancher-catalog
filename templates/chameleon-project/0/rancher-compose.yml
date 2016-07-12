@@ -16,7 +16,7 @@
     - variable: "service_mysql"
       description: "Select the mysql service you want to use. Be sure to start host services first!"
       label: "Service link to mysql"
-      type: "mysql"
+      type: "service"
       required: true
     - variable: "host_project_root"
       description: "Enter the project root on your host system (without trailing /customer)"
