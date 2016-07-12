@@ -20,7 +20,7 @@ php:
   labels:
     io.rancher.container.pull_image: always
   tty: true
-  image: ${phpversion}
+  image: chameleonsystem/docker-services:${phpversion}
   links:
   - 'memcached-session:'
   - 'memcached:'

@@ -1,17 +1,19 @@
 .catalog:
-  name: "Chameleon 6.0 and smaller"
-  version: "<= 6.0"
-  description: "Project stack for Chameleon 6.0 and smaller without PHP7 support"
+  name: "Chameleon 6.1"
+  version: "6.1"
+  description: "Project stack for Chameleon as of 6.1 including PHP7 support"
 
   questions:
     - variable: "phpversion"
       label: "PHP Version"
       description: "Select the php version you want for this project"
-      default: chameleonsystem/docker-services:php-5.6-fpm
+      default: chameleonsystem/docker-services:php-7.0-fpm
       required: true
       type: "enum"
       options:
+        - chameleonsystem/docker-services:php-7.0-fpm
         - chameleonsystem/docker-services:php-5.6-fpm
+        - docker.esono.de:5000/docker-services-private:php-7.0-fpm-oci
         - docker.esono.de:5000/docker-services-private:php-5.6-fpm-oci
     - variable: "host_project_root"
       description: "Enter the project root on your host system (without trailing /customer)"
@@ -43,3 +45,5 @@
       type: "string"
       required: true
       default: "yourprojectname.devbox-yourname.intra"
+
+
