@@ -16,31 +16,31 @@
     - variable: "host_project_root"
       description: "Enter the project root on your host system (without trailing /customer)"
       label: "Project root on host"
-      type: "service"
+      type: "string"
       required: true
       default: "/home/wwwusers/yourprojectname"
     - variable: "host_ip"
       description: "Enter the IP of your host machine so xdebug can connect to it"
       label: "Host IP"
-      type: "service"
+      type: "string"
       required: true
       default: "192.168.1.0"
     - variable: "user_id"
       description: "The id your user has on the host machine"
       label: "Your system user ID"
-      type: "service"
+      type: "int"
       required: true
       default: "10000"
     - variable: "user_name"
       description: "The name your user has on the host machine"
       label: "Your system user name"
-      type: "service"
+      type: "string"
       required: true
       default: "developer"
     - variable: "virtual_host"
       description: "The virtual host name you want this project to be accessible at"
       label: "Virtual host name"
-      type: "service"
+      type: "string"
       required: true
       default: "yourprojectname.devbox-yourname.intra"
 
