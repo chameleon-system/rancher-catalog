@@ -12,8 +12,9 @@ memcached-session:
   stdin_open: true
 php:
   environment:
-    EPP_XDEBUG: 'true'
+    EPP_XDEBUG: ${epp_xdebug}
     EPP_XDEBUG_REMOTE_HOST: ${host_ip}
+    EPP_SHOW_ERRORS: ${epp_show_errors}
     SERVICE_USER_ID: ${user_id}
   external_links:
   - ${service_mysql}

@@ -26,6 +26,15 @@
       type: "string"
       required: true
       default: "/home/wwwusers/yourprojectname"
+    - variable: "epp_xdebug"
+      description: "Set to true if you want to enable XDEBUG. False is recommended for production"
+      label: "Activate XDEBUG"
+      type: "string"
+      required: true
+      type: "enum"
+      options:
+        - false
+        - true
     - variable: "host_ip"
       description: "Enter the IP of your host machine so xdebug can connect to it"
       label: "Host IP"
@@ -50,5 +59,12 @@
       type: "string"
       required: true
       default: "yourprojectname.devbox-yourname.intra"
-
-
+    - variable: "epp_show_errors"
+      description: "Set to true if you want to see all PHP errors in your browser. False is recommended for production"
+      label: "Show PHP errors in browser"
+      type: "string"
+      required: true
+      type: "enum"
+      options:
+        - false
+        - true
