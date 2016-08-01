@@ -5,10 +5,9 @@ nginx:
   labels:
     io.rancher.container.pull_image: always
   tty: true
-  image: jwilder/nginx-proxy:0.4.0
+  image: chameleonsystem/docker-services:nginx-proxy-latest
   volumes:
   - /var/run/docker.sock:/tmp/docker.sock:ro
-  - /etc/docker/certs:/etc/nginx/certs
   stdin_open: true
 mysql:
   ports:
