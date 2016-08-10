@@ -11,7 +11,7 @@ nginx:
   stdin_open: true
 mysql:
   ports:
-  - 3306:3306/tcp
+  - 127.0.0.1:3306:3306/tcp
   environment:
     MYSQL_ROOT_PASSWORD: asklaskl
   labels:
