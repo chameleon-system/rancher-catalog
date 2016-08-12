@@ -28,8 +28,6 @@ php:
   - 'memcached:'
   volumes:
   - ${host_project_root}:/usr/local/apache2/htdocs
-  - ${host_location_composer}:/usr/local/bin/composer
-  - ${host_location_composercache}:/.composer
   stdin_open: true
 apache:
   environment:

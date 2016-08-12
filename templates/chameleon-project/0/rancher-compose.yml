@@ -66,15 +66,3 @@
       options:
         - false
         - true
-    - variable: "host_location_composer"
-      description: "The location of composer on your host"
-      label: "Composer location"
-      type: "string"
-      required: true
-      default: "/usr/local/bin/composer"
-    - variable: "host_location_composercache"
-      description: "The location of composer cache files. For example your github auth token for composer updates is saved here. "
-      label: "Your composer cache home"
-      type: "string"
-      required: true
-      default: "/home/yourname/.composer"
