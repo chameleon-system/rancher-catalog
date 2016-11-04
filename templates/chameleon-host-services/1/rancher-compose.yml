@@ -6,7 +6,7 @@
   questions:
     - variable: "phpmyadmin_vhost_name"
       description: "The virtual host name you want phpmyadmin to be accessible at"
-      label: "Virtual host name"
+      label: "PhpMyAdmin vhost name"
       type: "string"
       required: true
       default: "phpmyadmin.devbox-yourname.intra"
