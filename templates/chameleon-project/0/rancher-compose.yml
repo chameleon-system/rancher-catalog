@@ -1,6 +1,6 @@
 .catalog:
   name: "DEPRECATED Chameleon 6.0 and smaller"
-  version: "<= 6.0"
+  version: "DEPRECATED <= 6.0"
   description: "Project stack for Chameleon 6.0 and smaller without PHP7 support"
 
   questions:
