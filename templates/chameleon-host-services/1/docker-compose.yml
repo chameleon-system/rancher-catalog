@@ -21,3 +21,15 @@ mysql:
   volumes:
   - mysql:/var/lib/mysql
   stdin_open: true
+phpmyadmin:
+  environment:
+    VIRTUAL_HOST: ${phpmyadmin_vhost_name}
+    CERT_NAME: shared
+    PMA_HOST: mysql
+    PMA_USER: root
+    PMA_PASSWORD: asklaskl
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: phpmyadmin/phpmyadmin
+  stdin_open: true

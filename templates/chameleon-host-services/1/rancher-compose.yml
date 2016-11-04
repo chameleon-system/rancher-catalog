@@ -2,3 +2,11 @@
   name: "Chameleon Host Services"
   version: "1.1"
   description: "Nginx Reverse Proxy and MySQL. Version 1.1 Changelog: Added binding MySQL to local 127.0.0.1 interface only"
+
+  questions:
+    - variable: "phpmyadmin_vhost_name"
+      description: "The virtual host name you want phpmyadmin to be accessible at"
+      label: "Virtual host name"
+      type: "string"
+      required: true
+      default: "phpmyadmin.devbox-yourname.intra"
