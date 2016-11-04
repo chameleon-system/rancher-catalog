@@ -1,7 +1,7 @@
 .catalog:
-  name: "DEPRECATED Chameleon 6.1"
-  version: "6.1"
-  description: "Project stack for Chameleon as of 6.1 including PHP7 support"
+  name: "Chameleon Project"
+  version: "1.2"
+  description: "Default Project Stack for Chameleon"
 
   questions:
     - variable: "phpversion"
@@ -35,6 +35,39 @@
       options:
         - false
         - true
+    - variable: "epp_blackfire"
+      description: "Set to true if you want to enable Blackfire. False is recommended for production. XDEBUG should be disabled when Blackfire is enabled!"
+      label: "Activate Blackfire"
+      type: "string"
+      required: true
+      type: "enum"
+      options:
+        - false
+        - true
+    - variable: "blackfire_client_id"
+      description: "Enter your personal Blackfire client id"
+      label: "Blackfire ClientId"
+      type: "string"
+      required: true
+      default: ""
+    - variable: "blackfire_client_token"
+      description: "Enter your personal Blackfire client token"
+      label: "Blackfire ClientToken"
+      type: "string"
+      required: true
+      default: ""
+    - variable: "blackfire_server_id"
+      description: "Enter your personal Blackfire server id"
+      label: "Blackfire ServerId"
+      type: "string"
+      required: true
+      default: ""
+    - variable: "blackfire_server_token"
+      description: "Enter your personal Blackfire server token"
+      label: "Blackfire ServerToken"
+      type: "string"
+      required: true
+      default: ""
     - variable: "host_ip"
       description: "Enter the IP of your host machine so xdebug can connect to it"
       label: "Host IP"
