@@ -13,7 +13,7 @@ memcached-session:
 php:
   environment:
     EPP_XDEBUG: ${epp_xdebug}
-    EPP_XDEBUG: ${epp_blackfire}
+    EPP_BLACKFIRE: ${epp_blackfire}
     BLACKFIRE_CLIENT_ID: ${blackfire_client_id}
     BLACKFIRE_CLIENT_TOKEN: ${blackfire_client_token}
     EPP_XDEBUG_REMOTE_HOST: ${host_ip}
