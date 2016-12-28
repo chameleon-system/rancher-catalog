@@ -1,0 +1,55 @@
+memcached:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: memcached:1.4
+  stdin_open: true
+memcached-session:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: memcached:1.4
+  stdin_open: true
+php:
+  environment:
+    EPP_XDEBUG: ${epp_xdebug}
+    EPP_BLACKFIRE: ${epp_blackfire}
+    BLACKFIRE_CLIENT_ID: ${blackfire_client_id}
+    BLACKFIRE_CLIENT_TOKEN: ${blackfire_client_token}
+    EPP_XDEBUG_REMOTE_HOST: ${host_ip}
+    EPP_SHOW_ERRORS: ${epp_show_errors}
+    SERVICE_USER_ID: ${user_id}
+    SERVICE_USER_NAME: ${user_name}
+  external_links:
+  - ${service_mysql}
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: ${phpversion}
+  links:
+  - 'memcached-session:'
+  - 'memcached:'
+  volumes:
+  - ${host_project_root}:/usr/local/apache2/htdocs
+  stdin_open: true
+blackfire:
+  environment:
+    BLACKFIRE_SERVER_ID: ${blackfire_server_id}
+    BLACKFIRE_SERVER_TOKEN: ${blackfire_server_token}
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: blackfire/blackfire
+  stdin_open: true
+apache:
+  environment:
+    SERVICE_USER_ID: ${user_id}
+    SERVICE_USER_NAME: ${user_name}
+    HTTPS_METHOD: noredirect
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: chameleonsystem/docker-services:httpd-2.4
+  volumes:
+  - ${host_project_root}:/usr/local/apache2/htdocs
+  stdin_open: true
