@@ -2,7 +2,7 @@ version: '2'
 .catalog:
   name: "Chameleon Host Services"
   version: "1.2"
-  description: "Rancher HAProxy, PHPMyAdmin and MySQL. Version 1.2 Changelog: Switched from nginx proxy to HAProxy"
+  description: "Rancher HAProxy, PHPMyAdmin and MySQL. Version 1.2 Changelog: Switched from nginx proxy to HAProxy. PLEASE NOTE: YOU HAVE TO HAVE AN SSL CERT CALLED Snakeoil INSTALLED!"
   questions:
     - variable: "phpmyadmin_vhost_name"
       description: "The virtual host name you want phpmyadmin to be accessible at"
@@ -14,7 +14,7 @@ services:
   phpmyadmin:
     scale: 1
     start_on_create: true
-  frontendproxy:
+  frontend-proxy:
     scale: 1
     start_on_create: true
     lb_config:
