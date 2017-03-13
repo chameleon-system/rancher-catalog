@@ -1,8 +1,4 @@
 version: '2'
-volumes:
-  mysql:
-    external: true
-    driver: 'null'
 services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
