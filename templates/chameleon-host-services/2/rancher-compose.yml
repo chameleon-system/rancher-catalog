@@ -24,6 +24,10 @@ services:
             bind *:80
             mode http
             redirect scheme https if !{ ssl_fc }
+        defaults
+            timeout client 10m
+            timeout server 10m
+            timeout connect 10m
       default_cert: Snakeoil
       port_rules:
       - hostname: ${phpmyadmin_vhost_name}
