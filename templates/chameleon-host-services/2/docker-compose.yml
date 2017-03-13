@@ -11,7 +11,7 @@ services:
     tty: true
     labels:
       io.rancher.container.pull_image: always
-  frontendproxy:
+  frontend-proxy:
     image: rancher/lb-service-haproxy:v0.6.2
     ports:
     - 443:443/tcp
