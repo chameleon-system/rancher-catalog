@@ -1,6 +1,6 @@
 .catalog:
   name: "Chameleon Host Services"
-  version: "DEPRECATED 1.1"
+  version: "1.1"
   description: "Nginx Reverse Proxy and MySQL. Version 1.1 Changelog: Added binding MySQL to local 127.0.0.1 interface only"
 
   questions:
