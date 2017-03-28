@@ -11,14 +11,6 @@ services:
     tty: true
     labels:
       io.rancher.container.pull_image: always
-  frontend-proxy:
-    image: rancher/lb-service-haproxy:v0.6.2
-    ports:
-    - 443:443/tcp
-    - 80:80/tcp
-    labels:
-      io.rancher.container.agent.role: environmentAdmin
-      io.rancher.container.create_agent: 'true'
   mysql:
     image: chameleonsystem/docker-services:mariadb-10.1
     environment:
