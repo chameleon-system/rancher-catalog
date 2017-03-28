@@ -3,13 +3,6 @@ version: '2'
   name: "Chameleon Host Services"
   version: "1.3"
   description: "Rancher HAProxy, PHPMyAdmin and MariaDB. Version 1.3 Changelog: Switched MySQL to MariaDB 10.1. Removed loadbalancer config"
-  questions:
-    - variable: "phpmyadmin_vhost_name"
-      description: "The virtual host name you want phpmyadmin to be accessible at"
-      label: "PhpMyAdmin vhost name"
-      type: "string"
-      required: true
-      default: "phpmyadmin.devbox-yourname.intra"
 services:
   phpmyadmin:
     scale: 1
