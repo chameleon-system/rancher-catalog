@@ -1,6 +1,6 @@
 .catalog:
   name: "Chameleon Project"
-  version: "DEPRECATED 1.2"
+  version: "1.2"
   description: "Default Project Stack for Chameleon"
 
   questions:
