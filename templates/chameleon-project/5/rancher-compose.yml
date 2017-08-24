@@ -95,4 +95,4 @@
       label: "htaccess whitelist"
       type: "string"
       required: false
-      default: "(^192\.168\.1\..*$)|(^10\.42\..*$)"
+      default: "(^192\\.168\\.1\\..*$)|(^10\\.42\\..*$)"
