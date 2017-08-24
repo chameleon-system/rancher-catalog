@@ -78,3 +78,21 @@
       options:
         - false
         - true
+    - variable: "htaccess_user"
+      description: "Username of htaccess protection (leave empty if you don't want the stack's webserver to be htaccess-protected)"
+      label: "htaccess User"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "htaccess_pass"
+      description: "Password of htaccess protection"
+      label: "htaccess Password"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "htaccess_whitelist_ip_regex"
+      description: "Regular expression to match against the users x-forwarded ip-address - no CIDR notation here!"
+      label: "htaccess whitelist"
+      type: "string"
+      required: false
+      default: "(^192\.168\.1\..*$)|(^10\.42\..*$)"
