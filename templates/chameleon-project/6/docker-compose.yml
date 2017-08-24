@@ -28,6 +28,7 @@ php:
     EPP_SHOW_ERRORS: ${epp_show_errors}
     SERVICE_USER_ID: ${user_id}
     SERVICE_USER_NAME: ${user_name}
+    LOGSTASH_FIELDS: stack={{ .Stack.Name }},type=php
   labels:
     io.rancher.container.pull_image: always
   tty: true
@@ -42,7 +43,6 @@ apache:
     HTACCESS_USER: ${htaccess_user}
     HTACCESS_PASS: ${htaccess_pass}
     HTACCESS_WHITELIST_IP_REGEX: ${htaccess_whitelist_ip_regex}
-    LOGSTASH_FIELDS: stack={{ .Stack.Name }},type=php
   labels:
     io.rancher.container.pull_image: always
   tty: true
