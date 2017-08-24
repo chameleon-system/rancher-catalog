@@ -39,7 +39,9 @@ apache:
   environment:
     SERVICE_USER_ID: ${user_id}
     SERVICE_USER_NAME: ${user_name}
-    HTTPS_METHOD: noredirect
+    HTACCESS_USER: esono
+    HTACCESS_PASS: omedomed
+    HTACCESS_WHITELIST_IP_REGEX: (192\.168\.1\..*)|(10\.42\..*)
   labels:
     io.rancher.container.pull_image: always
   tty: true
