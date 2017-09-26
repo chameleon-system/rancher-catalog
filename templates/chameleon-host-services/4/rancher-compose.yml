@@ -1,0 +1,15 @@
+version: '2'
+.catalog:
+  name: "Chameleon Host Services"
+  version: "1.4"
+  description: "Rancher HAProxy, PHPMyAdmin and MariaDB. Version 1.4 Changelog: Set timezone to Europe/Berlin"
+services:
+  phpmyadmin:
+    scale: 1
+    start_on_create: true
+  mysql:
+    scale: 1
+    start_on_create: true
+
+
+

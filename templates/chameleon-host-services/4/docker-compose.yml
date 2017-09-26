@@ -1,0 +1,26 @@
+version: '2'
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      CERT_NAME: shared
+      PMA_HOST: mysql
+      PMA_PASSWORD: asklaskl
+      PMA_USER: root
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  mysql:
+    image: chameleonsystem/docker-services:mariadb-10.1
+    environment:
+      MYSQL_ROOT_PASSWORD: asklaskl
+      TZ: Europe/Berlin
+    stdin_open: true
+    volumes:
+    - mysql:/var/lib/mysql
+    tty: true
+    ports:
+    - 3306:3306/tcp
+    labels:
+      io.rancher.container.pull_image: always
