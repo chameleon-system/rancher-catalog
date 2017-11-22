@@ -1,0 +1,22 @@
+version: '2'
+.catalog:
+  name: "Chameleon Host Services"
+  version: "1.5"
+  description: "Rancher HAProxy, PHPMyAdmin and MariaDB. Version 1.5 Changelog: Force manual configuration of MySQL root password"
+  questions:
+    - variable: "mysql_root_password"
+      description: "The initial MySQL root password to set when no MySQL DB data is found"
+      label: "MySQL root password"
+      type: "string"
+      required: true
+      default: ""
+services:
+  phpmyadmin:
+    scale: 1
+    start_on_create: true
+  mysql:
+    scale: 1
+    start_on_create: true
+
+
+
