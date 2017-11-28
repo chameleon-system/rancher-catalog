@@ -1,0 +1,104 @@
+.catalog:
+  name: "Chameleon Project"
+  version: "1.7"
+  description: "Default Project Stack for Chameleon"
+
+  questions:
+    - variable: "phpversion"
+      label: "PHP Version"
+      description: "Select the php version you want for this project"
+      default: chameleonsystem/docker-services:php-7.1-fpm
+      required: true
+      type: "enum"
+      options:
+        - chameleonsystem/docker-services:php-7.1-fpm
+        - chameleonsystem/docker-services:php-5.6-fpm
+        - docker.esono.de:5000/docker-services-private:php-7.1-fpm-oci
+        - docker.esono.de:5000/docker-services-private:php-5.6-fpm-oci
+    - variable: "host_project_root"
+      description: "Enter the project root on your host system (without trailing /customer)"
+      label: "Project root on host"
+      type: "string"
+      required: true
+      default: "/home/wwwusers/yourprojectname"
+    - variable: "epp_xdebug"
+      description: "Set to true if you want to enable XDEBUG. False is recommended for production"
+      label: "Activate XDEBUG"
+      type: "string"
+      required: true
+      type: "enum"
+      options:
+        - false
+        - true
+    - variable: "epp_blackfire"
+      description: "Set to true if you want to enable Blackfire. False is recommended for production. XDEBUG should be disabled when Blackfire is enabled!"
+      label: "Activate Blackfire"
+      type: "string"
+      required: true
+      type: "enum"
+      options:
+        - false
+        - true
+    - variable: "blackfire_client_id"
+      description: "Enter your personal Blackfire client id"
+      label: "Blackfire ClientId"
+      type: "string"
+      required: true
+      default: ""
+    - variable: "blackfire_client_token"
+      description: "Enter your personal Blackfire client token"
+      label: "Blackfire ClientToken"
+      type: "string"
+      required: true
+      default: ""
+    - variable: "host_ip"
+      description: "Enter the IP of your host machine so xdebug can connect to it"
+      label: "Host IP"
+      type: "string"
+      required: true
+      default: "192.168.1.0"
+    - variable: "user_id"
+      description: "The id your user has on the host machine"
+      label: "Your system user ID"
+      type: "int"
+      required: true
+      default: "1000"
+    - variable: "user_name"
+      description: "The name your user has on the host machine"
+      label: "Your system user name"
+      type: "string"
+      required: true
+      default: "developer"
+    - variable: "epp_show_errors"
+      description: "Set to true if you want to see all PHP errors in your browser. False is recommended for production"
+      label: "Show PHP errors in browser"
+      type: "string"
+      required: true
+      type: "enum"
+      options:
+        - false
+        - true
+    - variable: "htaccess_user"
+      description: "Username of htaccess protection (leave empty if you don't want the stack's webserver to be htaccess-protected)"
+      label: "htaccess User"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "htaccess_pass"
+      description: "Password of htaccess protection"
+      label: "htaccess Password"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "htaccess_whitelist_ip_regex"
+      description: "Regular expression to match against the users x-forwarded ip-address - no CIDR notation here!"
+      label: "htaccess whitelist"
+      type: "string"
+      required: false
+      default: "(^192\\.168\\.1\\..*$)|(^10\\.42\\..*$)"
+    - variable: "vhost_custom_config"
+      description: "Enter file name for optional configuration (within the Vhost block!) here. Be sure to have it mounted!"
+      label: "Custom vhost include"
+      type: "string"
+      required: false
+      default: ""
