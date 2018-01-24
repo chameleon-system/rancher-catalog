@@ -14,7 +14,7 @@ services:
   mysql:
     image: chameleonsystem/docker-services:mariadb-10.1
     environment:
-      MYSQL_ROOT_PASSWORD: asklaskl
+      MYSQL_ROOT_PASSWORD: ${mysql_root_password}
       TZ: Europe/Berlin
     stdin_open: true
     volumes:
