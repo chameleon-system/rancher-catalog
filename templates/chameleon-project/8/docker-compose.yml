@@ -51,7 +51,8 @@ apache:
     traefik.frontend.rule: ${traefik_frontend_rule}
     traefik.port: '80'
     traefik.enable: 'true'
-    io.rancher.container.pull_image: always  image: chameleonsystem/docker-services:httpd-2.4
+    io.rancher.container.pull_image: always
+    image: chameleonsystem/docker-services:httpd-2.4
   volumes:
   - ${host_project_root}:/usr/local/apache2/htdocs
   stdin_open: true
@@ -67,4 +68,4 @@ cronjob-chameleon:
     labels:
       io.rancher.container.start_once: 'true'
       io.rancher.container.pull_image: always
-      cron.schedule: 0 0,15,30,45 * * * *
+      cron.schedule: '0 0,15,30,45 * * * *'
