@@ -37,6 +37,7 @@ php:
   - ${host_project_root}:/usr/local/apache2/htdocs
   stdin_open: true
 apache:
+  image: chameleonsystem/docker-services:httpd-2.4
   environment:
     SERVICE_USER_ID: ${user_id}
     SERVICE_USER_NAME: ${user_name}
@@ -52,7 +53,6 @@ apache:
     traefik.port: '80'
     traefik.enable: 'true'
     io.rancher.container.pull_image: always
-    image: chameleonsystem/docker-services:httpd-2.4
   volumes:
   - ${host_project_root}:/usr/local/apache2/htdocs
   stdin_open: true
