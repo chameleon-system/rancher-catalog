@@ -106,5 +106,5 @@
       description: "Enter a traefik frontend rule like the host names where this project should be reached"
       label: "Traefik FrontEnd Rule"
       type: "string"
-      required: false
-      default: "Host:www.yourdomain.tld,yourdomain.tld
+      required: true
+      default: "Host:www.yourdomain.tld,yourdomain.tld"
