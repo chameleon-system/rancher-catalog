@@ -4,4 +4,4 @@ Changelog
 
 V1.9:
 
-* Providing PHP Images
+* Providing 7.2 PHP Images
