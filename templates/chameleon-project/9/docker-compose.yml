@@ -1,0 +1,71 @@
+memcached:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: memcached:1.5
+  stdin_open: true
+  command:
+  - memcached
+  - -m
+  - '64'
+memcached-session:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: memcached:1.5
+  stdin_open: true
+  command:
+  - memcached
+  - -m
+  - '16'
+php:
+  environment:
+    EPP_XDEBUG: ${epp_xdebug}
+    EPP_BLACKFIRE: ${epp_blackfire}
+    BLACKFIRE_CLIENT_ID: ${blackfire_client_id}
+    BLACKFIRE_CLIENT_TOKEN: ${blackfire_client_token}
+    EPP_XDEBUG_REMOTE_HOST: ${host_ip}
+    EPP_SHOW_ERRORS: ${epp_show_errors}
+    SERVICE_USER_ID: ${user_id}
+    SERVICE_USER_NAME: ${user_name}
+    LOGSTASH_FIELDS: stack={{ .Stack.Name }},type=php
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: ${phpversion}
+  volumes:
+  - ${host_project_root}:/usr/local/apache2/htdocs
+  stdin_open: true
+apache:
+  image: chameleonsystem/docker-services:httpd-2.4
+  environment:
+    SERVICE_USER_ID: ${user_id}
+    SERVICE_USER_NAME: ${user_name}
+    HTACCESS_USER: ${htaccess_user}
+    HTACCESS_PASS: ${htaccess_pass}
+    HTACCESS_WHITELIST_IP_REGEX: ${htaccess_whitelist_ip_regex}
+    VHOST_CUSTOM_CONFIG: ${vhost_custom_config}
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  labels:
+    traefik.frontend.rule: ${traefik_frontend_rule}
+    traefik.port: '80'
+    traefik.enable: 'true'
+    io.rancher.container.pull_image: always
+  volumes:
+  - ${host_project_root}:/usr/local/apache2/htdocs
+  stdin_open: true
+cronjob-chameleon:
+    image: ${phpversion}
+    stdin_open: true
+    entrypoint:
+    - curl
+    - --header
+    - 'X-Forwarded-Proto: https'
+    - http://apache/cms?pagedef=runcrons
+    tty: true
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.pull_image: always
+      cron.schedule: '0 0,15,30,45 * * * *'
